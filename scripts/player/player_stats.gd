@@ -26,6 +26,7 @@ var mana: float = max_mana
 
 # Spells
 @export_enum("fireball", "pickaxe", "lighting") var equipped_spell: String
+@export var attack_cooldown: float = 0.5
 
 func take_damage(d: float, enemy: Node2D):
 	hp -= d
@@ -42,9 +43,13 @@ func take_damage(d: float, enemy: Node2D):
 	await get_tree().create_timer(0.5).timeout
 	player.attacked = false
 	
-func heal(amount: int):
+func restore_hp(amount: int):
 	hp = min(max_hp, hp + amount)
 	health_changed.emit(hp)
+	
+func restore_mana(amount: int):
+	mana = min(max_mana, mana + amount)
+	mana_changed.emit(mana)
 	
 func spend_mana(amount: int) -> bool:
 	if mana < amount:

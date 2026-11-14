@@ -2,7 +2,7 @@ extends Node
 
 @onready var player = get_parent()
 @onready var stats = player.get_node("Stats")
-@onready var effect1_scene = preload("res://scenes/multiple_jump_effect.tscn")
+@onready var effect1_scene = preload("res://scenes/effects/multiple_jump_effect.tscn")
 
 var direction: Vector2 = Vector2.ZERO
 var last_direction := Vector2.RIGHT

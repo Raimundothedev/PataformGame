@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bop4wvmfxws8a"]
+
+[ext_resource type="Script" uid="uid://bee53b038kvi7" path="res://scripts/collectables/mana_star.gd" id="1_b5ner"]
+[ext_resource type="Texture2D" uid="uid://fi6hrk6i34q7" path="res://assets/images/collectables/medkit-Sheet.png" id="2_ugg0u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv6jn"]
+atlas = ExtResource("2_ugg0u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ytjt"]
+atlas = ExtResource("2_ugg0u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg7f6"]
+atlas = ExtResource("2_ugg0u")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2kix"]
+atlas = ExtResource("2_ugg0u")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3a1o"]
+atlas = ExtResource("2_ugg0u")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sonet"]
+atlas = ExtResource("2_ugg0u")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuy3t"]
+atlas = ExtResource("2_ugg0u")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vain8"]
+atlas = ExtResource("2_ugg0u")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv6jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ytjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg7f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2kix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3a1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sonet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuy3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vain8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arxld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(48, 40)
+
+[node name="ManaStar" type="Area2D" unique_id=1727351571]
+script = ExtResource("1_b5ner")
+c_name = "manastar"
+effect_type = "mana"
+effect_amount = 50
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1630858178]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1125490722]
+visible = false
+shape = SubResource("RectangleShape2D_arxld")
+disabled = true
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=467689848]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1848972846]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(1, 0, 0.06100855, 0.23500001)

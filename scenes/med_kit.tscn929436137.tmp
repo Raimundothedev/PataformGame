@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bktvhnvq8gcej"]
+
+[ext_resource type="Script" uid="uid://bdy20nbm3ngx6" path="res://scripts/collectables/med_kit.gd" id="1_6vbq8"]
+[ext_resource type="Texture2D" uid="uid://d2jotsjoha2gv" path="res://icon.svg" id="1_jl7df"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vbq8"]
+size = Vector2(128, 128)
+
+[node name="MedKit" type="Area2D" unique_id=1971335623]
+script = ExtResource("1_6vbq8")
+c_name = "medkit"
+effect_type = "health"
+effect_amount = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1560921773]
+shape = SubResource("RectangleShape2D_g4v7s")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1332114499]
+texture = ExtResource("1_jl7df")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=940633609]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1932101559]
+shape = SubResource("RectangleShape2D_6vbq8")
+debug_color = Color(1, 0, 0.025840001, 0.42000002)

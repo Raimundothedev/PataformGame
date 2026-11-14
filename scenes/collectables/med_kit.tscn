@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://bktvhnvq8gcej"]
+
+[ext_resource type="Script" uid="uid://bdy20nbm3ngx6" path="res://scripts/collectables/med_kit.gd" id="1_6vbq8"]
+[ext_resource type="Texture2D" uid="uid://c346cjyovbdmj" path="res://assets/images/collectables/medkitNEW-Sheet.png" id="2_u75hc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbi7b"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6jd5"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8i53"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv2xj"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwmvq"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj6ap"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1wom"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dxex"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhtk1"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a00ux"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l22jq"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f56t"]
+atlas = ExtResource("2_u75hc")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbi7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6jd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8i53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv2xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwmvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj6ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1wom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dxex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhtk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a00ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l22jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f56t")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vbq8"]
+size = Vector2(48, 48)
+
+[node name="MedKit" type="Area2D" unique_id=1971335623]
+script = ExtResource("1_6vbq8")
+c_name = "medkit"
+effect_type = "health"
+effect_amount = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1560921773]
+visible = false
+shape = SubResource("RectangleShape2D_g4v7s")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=227590649]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame = 5
+frame_progress = 0.43896618
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=940633609]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1932101559]
+shape = SubResource("RectangleShape2D_6vbq8")
+debug_color = Color(1, 0, 0.0627451, 0.23529412)

@@ -2,7 +2,6 @@ extends Area2D
 class_name Spell
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var effect = preload("res://scenes/multiple_jump_effect.tscn")
 @onready var tile_map: TileMap = $TileMapLayer
 @export var dmg_mult: float = 1
 @export var vel: float = 300.0
@@ -11,6 +10,7 @@ class_name Spell
 @export var spell_type: String
 @export var break_level: int = 1
 @export var spell_level: int = 1
+@export var effect_scene: PackedScene = preload("res://scenes/effects/fireball_hit_effect.tscn")
 
 var player: CharacterBody2D
 var damage: float
@@ -28,7 +28,10 @@ func has_mana(mana):
 		visible = true
 
 func _ready() -> void:
+	visible = false
 	body_entered.connect(_on_body_entered)
+	await get_tree().create_timer(0.1).timeout
+	visible = true
 	await get_tree().create_timer(lifetime).timeout
 	queue_free()
 
@@ -49,6 +52,8 @@ func move_spell(delta: float) -> void:
 		sprite.flip_h = false
 		
 func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		return
 	if body is Block:
 		if body.breakable:
 			body.destroy(break_level)
@@ -57,8 +62,10 @@ func _on_body_entered(body: Node2D) -> void:
 		if body.hp > 0:
 			body.take_damage(damage, self)
 	
-	var new_effect = effect.instantiate()
-	get_tree().current_scene.add_child(new_effect)
-	new_effect.global_position = global_position
+	var effect = effect_scene.instantiate()
+	effect.direction = direction
+	effect.global_position = global_position
+	get_tree().current_scene.add_child(effect)
+	
 
 	queue_free()

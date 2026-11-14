@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dc7pk4s005ntp"]
+
+[ext_resource type="Script" uid="uid://dwkwvl6uq2gs" path="res://scripts/spells/pickaxe_spell.gd" id="1_4c6ib"]
+[ext_resource type="Texture2D" uid="uid://dm5hh0mlo6q7m" path="res://assets/images/vfx/attack/hammerspell-Sheet.png" id="2_3ksgr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5jy7"]
+atlas = ExtResource("2_3ksgr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq5pf"]
+atlas = ExtResource("2_3ksgr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56f12"]
+atlas = ExtResource("2_3ksgr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he4yt"]
+atlas = ExtResource("2_3ksgr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e216p"]
+atlas = ExtResource("2_3ksgr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b07cw"]
+atlas = ExtResource("2_3ksgr")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv52x"]
+atlas = ExtResource("2_3ksgr")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmr2l"]
+atlas = ExtResource("2_3ksgr")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8tew5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5jy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq5pf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56f12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he4yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e216p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b07cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv52x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmr2l")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yn3bx"]
+size = Vector2(24, 24)
+
+[node name="pickaxe_spell" type="Area2D" unique_id=922009097]
+script = ExtResource("1_4c6ib")
+dmg_mult = 0.85
+spell_type = "projectile"
+break_level = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=891500487]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_8tew5")
+autoplay = "default"
+frame_progress = 0.133958
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=981129085]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_yn3bx")

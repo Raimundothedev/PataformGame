@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bd8jwsnq31jhx"]
+
+[ext_resource type="Script" uid="uid://dtw627pxkoadb" path="res://scripts/hud.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://d0e5triaqqpbq" path="res://assets/images/HUD/healthicon.png" id="2_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://b47ea4qknucs8" path="res://assets/images/HUD/manaIcon.png" id="3_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://o3milb7qys0o" path="res://assets/images/HUD/resourcebarNul.png" id="4_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://2w734samvyag" path="res://assets/images/HUD/resourcebarHealth.png" id="5_047uy"]
+[ext_resource type="Texture2D" uid="uid://bgvpdt6hqwxev" path="res://assets/images/HUD/resourcebarMana.png" id="6_047uy"]
+
+[node name="HUD" type="CanvasLayer" unique_id=2088952530]
+script = ExtResource("1_ahhtf")
+_scale = 1.5
+show_attr_values = true
+
+[node name="Control" type="Control" parent="." unique_id=1079911293]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_right = 88.0
+offset_bottom = 56.0
+
+[node name="health_icon" type="Sprite2D" parent="Control" unique_id=415295780]
+texture_filter = 1
+position = Vector2(-4.000002, 19.999996)
+scale = Vector2(2.4999998, 2.5)
+texture = ExtResource("2_oo0fn")
+
+[node name="health_icon2" type="Sprite2D" parent="Control" unique_id=127145278]
+texture_filter = 1
+position = Vector2(-3.999999, 60)
+scale = Vector2(2.5, 2.4999998)
+texture = ExtResource("3_5ysmq")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="Control" unique_id=1913265833]
+texture_filter = 1
+layout_mode = 0
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 23.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+texture_under = ExtResource("4_uo2fv")
+texture_progress = ExtResource("5_047uy")
+
+[node name="ProgressBar2" type="TextureProgressBar" parent="Control" unique_id=793133223]
+texture_filter = 1
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 112.0
+offset_bottom = 63.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+texture_under = ExtResource("4_uo2fv")
+texture_progress = ExtResource("6_047uy")
+
+[node name="Health" type="Label" parent="Control" unique_id=448584562]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 31.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "HEALTH LABEL"
+
+[node name="Mana" type="Label" parent="Control" unique_id=97816765]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 144.0
+offset_bottom = 71.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MANA LABEL"

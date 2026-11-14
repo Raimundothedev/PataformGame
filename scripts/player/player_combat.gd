@@ -4,6 +4,7 @@ extends Node
 @onready var stats = player.get_node("Stats")
 @onready var movement = player.get_node("Movement")
 
+
 func cast_spell() -> void:
 	var is_pressed = Input.is_action_just_pressed("spell_skill")
 	if is_pressed:
@@ -21,12 +22,12 @@ func cast_spell() -> void:
 		
 		get_tree().current_scene.add_child(spell)
 		if movement.last_direction[0] > 0:
-			spell.global_position = player.global_position + Vector2(60, 0)
+			spell.global_position = player.global_position + Vector2(10, 0)
 		else:
-			spell.global_position = player.global_position + Vector2(-60, 0)
+			spell.global_position = player.global_position + Vector2(-10, 0)
 		spell.direction = movement.last_direction
 		
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(stats.attack_cooldown).timeout
 		player.attacking = false
 		return 
 	

@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://dimhbw2t2r0mc"]
 
-[ext_resource type="Script" uid="uid://df70dks47xqnm" path="res://scripts/Blocks/broken_stone.gd" id="1_86fmu"]
-[ext_resource type="Texture2D" uid="uid://dnr4kyxp3q0bn" path="res://assets/images/blocks/brokenstone.png" id="2_81s6j"]
+[ext_resource type="Script" uid="uid://df70dks47xqnm" path="res://scripts/blocks/broken_stone.gd" id="1_kcpks"]
+[ext_resource type="Texture2D" uid="uid://dnr4kyxp3q0bn" path="res://assets/images/blocks/brokenstone.png" id="2_hhvnr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tew5"]
 size = Vector2(16, 16)
 
 [node name="BrokenStone" type="StaticBody2D" unique_id=1277120266]
-script = ExtResource("1_86fmu")
+script = ExtResource("1_kcpks")
 breakable = true
 block_level = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125545629]
 texture_filter = 1
 scale = Vector2(3, 3)
-texture = ExtResource("2_81s6j")
+texture = ExtResource("2_hhvnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=361624630]
 scale = Vector2(3, 3)
