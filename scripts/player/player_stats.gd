@@ -28,9 +28,15 @@ var mana: float = max_mana
 @export_enum("fireball", "pickaxe", "lighting") var equipped_spell: String
 @export var attack_cooldown: float = 0.5
 
+var invulnerable: bool = false
+
 func take_damage(d: float, enemy: Node2D):
+	if invulnerable:
+		return
 	hp -= d
 	health_changed.emit(hp)
+	invulnerable = true
+
 	
 	if hp <= 0:
 		print("Game Over baby")
@@ -40,8 +46,12 @@ func take_damage(d: float, enemy: Node2D):
 	player.velocity.x = knockback_direction.x * 500
 	player.velocity.y = -350
 	
+	player.add_collision_exception_with(enemy)
+	
 	await get_tree().create_timer(0.5).timeout
+	player.remove_collision_exception_with(enemy)
 	player.attacked = false
+	invulnerable = false
 	
 func restore_hp(amount: int):
 	hp = min(max_hp, hp + amount)

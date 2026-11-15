@@ -24,18 +24,20 @@ func _physics_process(delta: float) -> void:
 	movement.handle_jump()
 	movement.handle_movement(delta)
 	movement.dash_skill()
+	movement.handle_down()
 	combat.cast_spell()
 	stats.regen_mana()
 	handle_animation()
 	
 	
 	move_and_slide()
-	
+
 func handle_animation() -> void:
 	if attacked:
 		animated_sprite_2d.play("Hit")
 		return
 	if attacking:
+		animated_sprite_2d.flip_h = velocity.x < 0
 		animated_sprite_2d.play("Attacking")
 		return
 	if not is_zero_approx(velocity.x):

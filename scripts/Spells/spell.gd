@@ -18,7 +18,6 @@ var damage: float
 func setup(p: CharacterBody2D, m: int):
 	player = p
 	damage = player.stats.dmg * dmg_mult
-	visible = false	
 	has_mana(m)
 	
 func has_mana(mana):
@@ -43,7 +42,7 @@ func _physics_process(delta: float) -> void:
 func move_spell(delta: float) -> void:
 	match spell_type:
 		"projectile":
-			global_position += direction * vel * delta
+			global_position += direction.normalized() * vel * delta
 		_:
 			return
 	if direction[0] < 0:

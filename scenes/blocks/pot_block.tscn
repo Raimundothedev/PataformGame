@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dgl2tikdngmf0"]
+
+[ext_resource type="Script" uid="uid://qsaj6e0dc83c" path="res://scripts/blocks/pot_block.gd" id="1_2ws26"]
+[ext_resource type="Texture2D" uid="uid://do2shab2xdsge" path="res://assets/images/blocks/pot.png" id="1_qvu3d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ws26"]
+size = Vector2(48, 36)
+
+[node name="PotBlock" type="StaticBody2D" unique_id=1519796198]
+script = ExtResource("1_2ws26")
+breakable = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=994874825]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_qvu3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2020073504]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_2ws26")

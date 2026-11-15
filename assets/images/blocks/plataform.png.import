@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkgvmx6jseijc"
-path="res://.godot/imported/metalblock-Sheet.png-41ddc9104f66e38936ab7a9762bbc17a.ctex"
+uid="uid://c1wkfl7e0xvsa"
+path="res://.godot/imported/plataform.png-33c19ba5b61743f693c399a804f333f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/blocks/metalblock-Sheet.png"
-dest_files=["res://.godot/imported/metalblock-Sheet.png-41ddc9104f66e38936ab7a9762bbc17a.ctex"]
+source_file="res://assets/images/blocks/plataform.png"
+dest_files=["res://.godot/imported/plataform.png-33c19ba5b61743f693c399a804f333f6.ctex"]
 
 [params]
 

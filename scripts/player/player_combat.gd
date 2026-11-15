@@ -22,9 +22,9 @@ func cast_spell() -> void:
 		
 		get_tree().current_scene.add_child(spell)
 		if movement.last_direction[0] > 0:
-			spell.global_position = player.global_position + Vector2(10, 0)
+			spell.global_position = player.global_position + Vector2(35, 0)
 		else:
-			spell.global_position = player.global_position + Vector2(-10, 0)
+			spell.global_position = player.global_position + Vector2(-35, 0)
 		spell.direction = movement.last_direction
 		
 		await get_tree().create_timer(stats.attack_cooldown).timeout

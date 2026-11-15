@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkyrrqavtw1wb"
-path="res://.godot/imported/slimeWalking5frames-Sheet.png-77aef924e9bc5064fda567b3d5949d03.ctex"
+uid="uid://dp4x6jn5fmky0"
+path="res://.godot/imported/background5.png-5a51118f77262f3f8e126aea82c2bfe3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/enemy/slimeWalking5frames-Sheet.png"
-dest_files=["res://.godot/imported/slimeWalking5frames-Sheet.png-77aef924e9bc5064fda567b3d5949d03.ctex"]
+source_file="res://assets/images/background/background5.png"
+dest_files=["res://.godot/imported/background5.png-5a51118f77262f3f8e126aea82c2bfe3.ctex"]
 
 [params]
 

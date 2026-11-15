@@ -2,11 +2,11 @@
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=1978707806]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1380333550]
-texture_filter = 1
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=640002379]
 debug_color = Color(1, 0, 1, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1380333550]
+texture_filter = 1
 
 [node name="Range" type="Area2D" parent="." unique_id=74530502]
 

@@ -47,8 +47,8 @@ func chase_player(delta: float) -> void:
 	if is_dashing or player_attack:
 		return
 			
-	#if player_on_atkrange:
-		#attack_anim()
+	if player_on_atkrange:
+		attack_anim()
 	if player_on_range:
 		direction = (player.global_position - global_position).normalized()
 	else:
@@ -104,39 +104,60 @@ func take_damage(d: float, atker) -> void:
 var is_dashing: bool = false
 var can_attack: bool = true
 		
-#func attack_anim() -> void:
-	#if not direction:
-		#return
-		#
-	#can_attack = false
-	#is_dashing = true
-#
-	#velocity.x = 0
-	#await get_tree().create_timer(0.5).timeout
-	#
-	#add_collision_exception_with(player)
-	#direction = (player.global_position - global_position).normalized()
-	#velocity.x = direction.x * dash_speed
-	#
-	#await get_tree().create_timer(dash_duration).timeout
-	#
-	#velocity.x = 0
-	#is_dashing = false
-	#remove_collision_exception_with(player)
-	#
-	#await get_tree().create_timer(attack_cooldown).timeout
-	#can_attack = true
+func attack_anim() -> void:
+	if not direction:
+		return
+	if not can_attack:
+		return
+		
+	can_attack = false
+	is_dashing = true
+
+	velocity.x = 0
+	await get_tree().create_timer(0.5).timeout
+	
+	add_collision_exception_with(player)
+	direction = (player.global_position - global_position).normalized()
+	velocity.x = direction.x * dash_speed
+	
+	await get_tree().create_timer(dash_duration).timeout
+	
+	velocity.x = 0
+	is_dashing = false
+	remove_collision_exception_with(player)
+	
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.stats.take_damage(dmg, self)
-		print("awdad")
 
 func handle_animation():
 	if not animated_sprite_2d:
 		return
+
+	if player_attack:
+		if animated_sprite_2d.sprite_frames.has_animation("hit"):
+			if direction[0] > 0:
+				animated_sprite_2d.flip_h = false
+				animated_sprite_2d.play("hit")
+			else:
+				animated_sprite_2d.flip_h = true
+				animated_sprite_2d.play("hit")
+			return
 	
-	var moving = not is_zero_approx(global_position.x - previous_position.x)
+	# Ta dando merda
+	#if is_dashing:
+		#if animated_sprite_2d.sprite_frames.has_animation("attack"):
+			#if direction[0] > 0:
+				#animated_sprite_2d.flip_h = false
+				#animated_sprite_2d.play("attack")
+			#else:
+				#animated_sprite_2d.flip_h = true
+				#animated_sprite_2d.play("attack")
+			#return
+	var moving = not is_zero_approx(velocity.x)
 	
 	if moving:
 		animated_sprite_2d.flip_h = velocity.x < 0

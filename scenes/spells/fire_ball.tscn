@@ -1,19 +1,18 @@
 [gd_scene format=3 uid="uid://cy3qc8mhjufra"]
 
-[ext_resource type="Script" uid="uid://feq3md14v4wt" path="res://scripts/fire_ball.gd" id="1_qddq2"]
-[ext_resource type="Texture2D" uid="uid://4tpwcs0xi5cp" path="res://assets/images/vfx/attack/Fireball2.png" id="2_qddq2"]
-[ext_resource type="PackedScene" uid="uid://ccbwsrrjtg2ua" path="res://scenes/effects/fireball_hit_effect.tscn" id="2_une7w"]
+[ext_resource type="Script" uid="uid://feq3md14v4wt" path="res://scripts/fire_ball.gd" id="1_aaa04"]
+[ext_resource type="Texture2D" uid="uid://4tpwcs0xi5cp" path="res://assets/images/vfx/attack/Fireball2.png" id="2_31pjr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_une7w"]
-atlas = ExtResource("2_qddq2")
+atlas = ExtResource("2_31pjr")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ggq3o"]
-atlas = ExtResource("2_qddq2")
+atlas = ExtResource("2_31pjr")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kry06"]
-atlas = ExtResource("2_qddq2")
+atlas = ExtResource("2_31pjr")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8tew5"]
@@ -37,12 +36,10 @@ animations = [{
 size = Vector2(84, 25)
 
 [node name="FireBall" type="Area2D" unique_id=1811725015]
-script = ExtResource("1_qddq2")
+script = ExtResource("1_aaa04")
 dmg_mult = 1.15
 vel = 850.0
 spell_type = "projectile"
-break_level = 0
-effect = ExtResource("2_une7w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656388386]
 texture_filter = 1

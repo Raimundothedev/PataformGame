@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b6bk3pxa6bjuf" path="res://scripts/player/player_camera.gd" id="6_ur7pv"]
 [ext_resource type="Script" uid="uid://bwoh7qe73vs2x" path="res://scripts/player/player_combat.gd" id="7_fjrip"]
 [ext_resource type="Script" uid="uid://br3elxv5tblxd" path="res://scripts/player/player_stats.gd" id="8_smehm"]
+[ext_resource type="PackedScene" uid="uid://bd8jwsnq31jhx" path="res://scenes/player/hud.tscn" id="10_h17s1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
 atlas = ExtResource("2_smehm")
@@ -88,7 +89,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i4ail")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Attacking",
 "speed": 5.0
 }, {
@@ -163,7 +164,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tew5"]
-size = Vector2(46.5, 44)
+size = Vector2(46.5, 48)
 
 [node name="Player" type="CharacterBody2D" unique_id=1870519369 groups=["player"]]
 script = ExtResource("1_qlg0r")
@@ -172,12 +173,11 @@ script = ExtResource("1_qlg0r")
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_8tew5")
-animation = &"Idle"
+animation = &"Attacking"
 autoplay = "Idle"
-frame_progress = 0.60806996
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912643557]
-position = Vector2(0.75, -2)
+position = Vector2(0.75, 0)
 shape = SubResource("RectangleShape2D_8tew5")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=875166482]
@@ -194,7 +194,10 @@ script = ExtResource("7_fjrip")
 [node name="Stats" type="Node" parent="." unique_id=1160536799]
 script = ExtResource("8_smehm")
 max_mana = 100000.0
-max_jumps = 5
+dmg = 10.0
+jump_amplifier = 1.5
 dash_cooldown = 0.0
 equipped_spell = "fireball"
-attack_cooldown = 0.0
+attack_cooldown = 1.0
+
+[node name="HUD" parent="." unique_id=2088952530 instance=ExtResource("10_h17s1")]

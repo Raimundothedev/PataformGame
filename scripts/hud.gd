@@ -6,7 +6,7 @@ extends CanvasLayer
 @onready var mana_label: Label = $Control/Mana
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var player_stats: Node = player.get_node("Stats")
-@export var _scale: float = 1
+@export var _scale: float = 1.5
 @export var show_attr_values: bool = false
 
 

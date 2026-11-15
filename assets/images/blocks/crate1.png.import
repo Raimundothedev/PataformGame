@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnr4kyxp3q0bn"
-path="res://.godot/imported/brokenstone.png-bc874fad3e2508ec260769b69077d0c0.ctex"
+uid="uid://cnumc7yp1m0d3"
+path="res://.godot/imported/crate1.png-b1f682c05ff484f93b9fc06def5b1241.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/blocks/brokenstone.png"
-dest_files=["res://.godot/imported/brokenstone.png-bc874fad3e2508ec260769b69077d0c0.ctex"]
+source_file="res://assets/images/blocks/crate1.png"
+dest_files=["res://.godot/imported/crate1.png-b1f682c05ff484f93b9fc06def5b1241.ctex"]
 
 [params]
 

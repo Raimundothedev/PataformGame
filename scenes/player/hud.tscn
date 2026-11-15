@@ -1,16 +1,44 @@
 [gd_scene format=3 uid="uid://bd8jwsnq31jhx"]
 
-[ext_resource type="Script" uid="uid://dtw627pxkoadb" path="res://scripts/hud.gd" id="1_ahhtf"]
-[ext_resource type="Texture2D" uid="uid://d0e5triaqqpbq" path="res://assets/images/HUD/healthicon.png" id="2_oo0fn"]
-[ext_resource type="Texture2D" uid="uid://b47ea4qknucs8" path="res://assets/images/HUD/manaIcon.png" id="3_5ysmq"]
-[ext_resource type="Texture2D" uid="uid://o3milb7qys0o" path="res://assets/images/HUD/resourcebarNul.png" id="4_uo2fv"]
-[ext_resource type="Texture2D" uid="uid://2w734samvyag" path="res://assets/images/HUD/resourcebarHealth.png" id="5_047uy"]
-[ext_resource type="Texture2D" uid="uid://bgvpdt6hqwxev" path="res://assets/images/HUD/resourcebarMana.png" id="6_047uy"]
+[ext_resource type="Script" uid="uid://dtw627pxkoadb" path="res://scripts/hud.gd" id="1_nhg7b"]
+[ext_resource type="Texture2D" uid="uid://d0e5triaqqpbq" path="res://assets/images/HUD/healthicon.png" id="2_oxl5d"]
+[ext_resource type="FontFile" uid="uid://bccn0gm0sivmf" path="res://assets/fonts/pixelify-sans-latin-400-normal.ttf" id="3_a6kbs"]
+[ext_resource type="Texture2D" uid="uid://b47ea4qknucs8" path="res://assets/images/HUD/manaIcon.png" id="3_v82ke"]
+[ext_resource type="Texture2D" uid="uid://o3milb7qys0o" path="res://assets/images/HUD/resourcebarNul.png" id="4_a6kbs"]
+[ext_resource type="Texture2D" uid="uid://2w734samvyag" path="res://assets/images/HUD/resourcebarHealth.png" id="5_gbix8"]
+[ext_resource type="Texture2D" uid="uid://bgvpdt6hqwxev" path="res://assets/images/HUD/resourcebarMana.png" id="6_ulf4u"]
+[ext_resource type="Script" uid="uid://cvvqrgwj4seao" path="res://scripts/biome_title.gd" id="7_oxl5d"]
 
 [node name="HUD" type="CanvasLayer" unique_id=2088952530]
-script = ExtResource("1_ahhtf")
-_scale = 1.5
+script = ExtResource("1_nhg7b")
+_scale = 1.0
 show_attr_values = true
+
+[node name="BiomeTitle" type="Control" parent="." unique_id=852779767]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("7_oxl5d")
+
+[node name="Title" type="Label" parent="BiomeTitle" unique_id=867490717]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 64.0
+offset_right = 1.0
+offset_bottom = 218.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_a6kbs")
+theme_override_font_sizes/font_size = 96
+text = "BIOME TITTLE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="." unique_id=1079911293]
 layout_mode = 3
@@ -23,13 +51,13 @@ offset_bottom = 56.0
 texture_filter = 1
 position = Vector2(-4.000002, 19.999996)
 scale = Vector2(2.4999998, 2.5)
-texture = ExtResource("2_oo0fn")
+texture = ExtResource("2_oxl5d")
 
 [node name="health_icon2" type="Sprite2D" parent="Control" unique_id=127145278]
 texture_filter = 1
 position = Vector2(-3.999999, 60)
 scale = Vector2(2.5, 2.4999998)
-texture = ExtResource("3_5ysmq")
+texture = ExtResource("3_v82ke")
 
 [node name="ProgressBar" type="TextureProgressBar" parent="Control" unique_id=1913265833]
 texture_filter = 1
@@ -40,8 +68,8 @@ offset_right = 112.0
 offset_bottom = 23.0
 offset_transform_enabled = true
 offset_transform_scale = Vector2(2, 2)
-texture_under = ExtResource("4_uo2fv")
-texture_progress = ExtResource("5_047uy")
+texture_under = ExtResource("4_a6kbs")
+texture_progress = ExtResource("5_gbix8")
 
 [node name="ProgressBar2" type="TextureProgressBar" parent="Control" unique_id=793133223]
 texture_filter = 1
@@ -52,8 +80,8 @@ offset_right = 112.0
 offset_bottom = 63.0
 offset_transform_enabled = true
 offset_transform_scale = Vector2(2, 2)
-texture_under = ExtResource("4_uo2fv")
-texture_progress = ExtResource("6_047uy")
+texture_under = ExtResource("4_a6kbs")
+texture_progress = ExtResource("6_ulf4u")
 
 [node name="Health" type="Label" parent="Control" unique_id=448584562]
 layout_mode = 0
