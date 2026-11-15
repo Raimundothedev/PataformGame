@@ -1304,7 +1304,7 @@ position = Vector2(488, 168)
 position = Vector2(992, 192)
 
 [node name="Slime2" parent="Entities/Enemies" unique_id=820853979 instance=ExtResource("7_qpj65")]
-position = Vector2(1120, -152)
+position = Vector2(1184, -136)
 
 [node name="Slime3" parent="Entities/Enemies" unique_id=473712694 instance=ExtResource("7_qpj65")]
 position = Vector2(1328, 144)
