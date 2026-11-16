@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnfn174s03hfa"
-path="res://.godot/imported/fireballvfx.png-93a6ab414971b26968ae6ca15a58437a.ctex"
+uid="uid://djjl4yykl5bbn"
+path="res://.godot/imported/ak47.webp-0981e60d050b00d4bc6cac01fc55b447.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/vfx/attack/fireballvfx.png"
-dest_files=["res://.godot/imported/fireballvfx.png-93a6ab414971b26968ae6ca15a58437a.ctex"]
+source_file="res://assets/images/collectables/ak47.webp"
+dest_files=["res://.godot/imported/ak47.webp-0981e60d050b00d4bc6cac01fc55b447.ctex"]
 
 [params]
 

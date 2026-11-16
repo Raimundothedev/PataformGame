@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bq5xcmrtmjibm"]
+
+[ext_resource type="Script" uid="uid://cnc52hxo4tcfe" path="res://scripts/spells/ak_47.gd" id="1_m5p3k"]
+[ext_resource type="Texture2D" uid="uid://dh7xvge3he6ax" path="res://assets/images/vfx/attack/bulletbosta.png" id="1_u6wb1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(32, 18)
+
+[node name="Ak47" type="Area2D" unique_id=1921182095]
+script = ExtResource("1_m5p3k")
+dmg_mult = 100.0
+vel = 1000.0
+mana_cost = 0.0
+atk_cooldown = 0.15
+lifetime = 5.0
+spell_type = "projectile"
+break_level = 10
+spell_level = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=61263340]
+scale = Vector2(2, 2)
+texture = ExtResource("1_u6wb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2007988723]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_yf5fn")

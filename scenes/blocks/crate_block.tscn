@@ -8,6 +8,7 @@ size = Vector2(16, 16)
 
 [node name="CrateBlock" type="StaticBody2D" unique_id=559742786]
 script = ExtResource("1_2tly0")
+breakable = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1380752205]
 texture_filter = 1

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bpdktpfjwjv2"]
+
+[ext_resource type="Script" uid="uid://wddu4i2sb213" path="res://scripts/level_exit.gd" id="1_3xln6"]
+[ext_resource type="Texture2D" uid="uid://cn0hk6q381234" path="res://assets/images/environment/light_stream.jpg" id="2_g8ilb"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4v7s"]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(176, 256)
+
+[node name="LevelExit" type="Area2D" unique_id=1777213416]
+script = ExtResource("1_3xln6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=315057117]
+modulate = Color(0.46816558, 3.1621905e-05, 0.38247696, 0.4509804)
+material = SubResource("CanvasItemMaterial_g4v7s")
+position = Vector2(-5.722046e-06, -128)
+scale = Vector2(0.75, 1)
+texture = ExtResource("2_g8ilb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1358554124]
+position = Vector2(0, -128)
+shape = SubResource("RectangleShape2D_yf5fn")

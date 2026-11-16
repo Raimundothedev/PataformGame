@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 var attacking = false
 var attacked = false
+var atk_anim = false
 
 # DEBUG ------------------------------
 var spells = ["fireball", "pickaxe"]
@@ -20,33 +21,35 @@ func _input(event: InputEvent) -> void:
 		stats.equipped_spell = spells[current_index]
 
 func _physics_process(delta: float) -> void:
+	# Movement
 	movement.handle_gravity(delta)
 	movement.handle_jump()
 	movement.handle_movement(delta)
 	movement.dash_skill()
 	movement.handle_down()
+	move_and_slide()
+	
+	# Combat
 	combat.cast_spell()
+	
+	# Stats
 	stats.regen_mana()
+	
+	# Animation
 	handle_animation()
 	
-	
-	move_and_slide()
 
 func handle_animation() -> void:
 	if attacked:
 		animated_sprite_2d.play("Hit")
 		return
-	if attacking:
-		animated_sprite_2d.flip_h = velocity.x < 0
-		animated_sprite_2d.play("Attacking")
-		return
+		
 	if not is_zero_approx(velocity.x):
 		animated_sprite_2d.flip_h = velocity.x < 0
 		animated_sprite_2d.play("Walking")
 		return
 	animated_sprite_2d.play("Idle")
-		
-
+	
 
 
 	

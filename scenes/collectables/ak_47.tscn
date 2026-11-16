@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dvy7skyth8svg"]
+
+[ext_resource type="Script" uid="uid://c2lqrbydqeq4g" path="res://scripts/collectables/ak_47.gd" id="1_1nrq7"]
+[ext_resource type="Texture2D" uid="uid://djjl4yykl5bbn" path="res://assets/images/collectables/ak47.webp" id="2_0yxe8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(176, 96)
+
+[node name="Ak47" type="Area2D" unique_id=438188931]
+script = ExtResource("1_1nrq7")
+c_name = "ak47"
+effect_type = "add_spell"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=85540714]
+scale = Vector2(0.2511628, 0.25555557)
+texture = ExtResource("2_0yxe8")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1676123035]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=974677722]
+shape = SubResource("RectangleShape2D_yf5fn")
+debug_color = Color(0.99215686, 0, 0, 0.41960785)

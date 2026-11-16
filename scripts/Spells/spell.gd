@@ -1,11 +1,12 @@
 extends Area2D
 class_name Spell
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: Node2D = get_node_or_null("Sprite2D")
 @onready var tile_map: TileMap = $TileMapLayer
 @export var dmg_mult: float = 1
 @export var vel: float = 300.0
 @export var mana_cost: float = 10.0
+@export var atk_cooldown: float = 1
 @export var lifetime: float = 15.0
 @export var spell_type: String
 @export var break_level: int = 1
@@ -17,6 +18,7 @@ var damage: float
 
 func setup(p: CharacterBody2D, m: int):
 	player = p
+	player.stats.attack_cooldown = atk_cooldown
 	damage = player.stats.dmg * dmg_mult
 	has_mana(m)
 	
@@ -27,6 +29,8 @@ func has_mana(mana):
 		visible = true
 
 func _ready() -> void:
+	if not sprite:
+		sprite = get_node_or_null("AnimatedSprite2D")
 	visible = false
 	body_entered.connect(_on_body_entered)
 	await get_tree().create_timer(0.1).timeout
