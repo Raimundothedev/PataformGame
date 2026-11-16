@@ -9,6 +9,8 @@ class_name Collectible
 @onready var player: CharacterBody2D
 @onready var hitbox: Area2D = $Hitbox
 
+var collected = false
+
 var effects = [
 	"health",
 	"mana",
@@ -17,6 +19,7 @@ var effects = [
 ]
 
 func _ready() -> void:
+	add_to_group("persistent")
 	hitbox.body_entered.connect(_on_body_entered)
 	player = get_tree().get_first_node_in_group("player")
 
@@ -50,5 +53,18 @@ func add_spell() -> bool:
 	return	false
 	
 func destroy():
-	queue_free()
+	collected = true
+	hide()
+	process_mode = Node.PROCESS_MODE_DISABLED
 	
+func get_save_data() -> Dictionary:
+	return{
+		"position" = global_position,
+		"collected" = collected
+	}
+	
+func load_save_data(data: Dictionary) -> void:
+	if data.get("collected", false):
+		queue_free()
+		return
+	global_position = data.get("position", global_position)

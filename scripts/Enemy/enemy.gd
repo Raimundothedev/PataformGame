@@ -11,14 +11,18 @@ class_name Enemy
 @export var dash_duration: float = 0.25
 
 var start_position: Vector2
+var is_dead: bool = false
 
 @onready var animated_sprite_2d = get_node_or_null("AnimatedSprite2D")
 
 var player: CharacterBody2D
+var persistent_id: String
 @onready var hitbox: Area2D = $Hitbox
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")	
+	add_to_group("persistent")
+	player = get_tree().get_first_node_in_group("player")
+	print(persistent_id)
 	hitbox.body_entered.connect(_on_body_entered)
 	start_position = global_position
 	for area in [$Range, $AttackRange]:
@@ -89,10 +93,11 @@ func handle_gravity(delta: float) -> void:
 
 func take_damage(d: float, atker) -> void:
 	player_attack = true
-	hp -= d
+	hp = max(hp - d, 0)
 	
 	if hp <= 0:
-		queue_free()
+		die()
+		return
 		
 	var knockback_direction = (global_position - atker.global_position).normalized()
 	velocity.x = knockback_direction.x * 100 * knockback_multiplier
@@ -100,6 +105,11 @@ func take_damage(d: float, atker) -> void:
 	
 	await get_tree().create_timer(0.5).timeout
 	player_attack = false
+	
+func die() -> void:
+	is_dead = true
+	hide()
+	process_mode = Node.PROCESS_MODE_DISABLED 
 
 var is_dashing: bool = false
 var can_attack: bool = true
@@ -167,4 +177,20 @@ func handle_animation():
 	else:
 		if animated_sprite_2d.sprite_frames.has_animation("idle"):
 			animated_sprite_2d.play("idle")
+			
+func get_save_data() -> Dictionary:
+	return {
+		"position": global_position,
+		"health": hp,
+		"is_dead": is_dead
+	}
+	
+
+func load_save_data(data: Dictionary) -> void:
+	if data.get("is_dead", false):
+		queue_free()
+		return
+		
+	global_position = data.get("position", global_position)
+	hp = data.get("health", hp)
 	

@@ -8,26 +8,30 @@ var player: CharacterBody2D
 func _ready() -> void:
 	level_container = get_tree().current_scene.get_node("Levels")
 	player = get_tree().get_first_node_in_group("player")
+	
+func change_level(scene_path: String, spawn_id: StringName) -> void:
+	load_level(scene_path)
+	place_player(spawn_id)
 
 func load_level(scene_path: String) -> void:
-	unload_level()
-	var scene = load(scene_path)
-
+	var scene: PackedScene = load(scene_path)
 	if scene == null:
 		return
+		
+	if current_level:
+		SaveManager.save_level(current_level)
+	unload_level()
 
 	var instance = scene.instantiate()
 	level_container.add_child(instance)
-	
 	current_level = instance
 	
-func change_level(scene_path: String, spawn_id: StringName) -> void:
-	await load_level(scene_path)
-	place_player(spawn_id)
+	SaveManager.load_level(current_level)
 	
 func unload_level() -> void:
 	if not current_level:
 		return
+	level_container.remove_child(current_level)
 	current_level.queue_free()
 	current_level = null
 	

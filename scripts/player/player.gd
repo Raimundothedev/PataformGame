@@ -19,6 +19,9 @@ func _input(event: InputEvent) -> void:
 			current_index = 0
 		
 		stats.equipped_spell = spells[current_index]
+		
+func _ready() -> void:
+	add_to_group("persistent")
 
 func _physics_process(delta: float) -> void:
 	# Movement
@@ -49,6 +52,7 @@ func handle_animation() -> void:
 		animated_sprite_2d.play("Walking")
 		return
 	animated_sprite_2d.play("Idle")
+	
 	
 
 

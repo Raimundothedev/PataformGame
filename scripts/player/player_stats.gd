@@ -33,7 +33,7 @@ var invulnerable: bool = false
 func take_damage(d: float, enemy: Node2D):
 	if invulnerable:
 		return
-	hp -= d
+	hp = max(hp - d, 0)
 	health_changed.emit(hp)
 	invulnerable = true
 
@@ -81,4 +81,34 @@ func regen_mana():
 			mana_changed.emit(mana)
 			await get_tree().create_timer(1).timeout
 			can_regen = true	
+	
+func get_save_data() -> Dictionary:
+	return{
+		"position" = player.global_position,
+		"max_hp" = max_hp,
+		"max_mana" = max_mana,
+		"hp" = hp,
+		"mana" = mana,
+		"mana_regen_mult" = mana_regen_mult,
+		"dmg" = dmg,
+		"speed" = speed,
+		"max_jumps" = max_jumps,
+		"equipped_spell" = equipped_spell
+	}
+	
+func load_save_data(data: Dictionary) -> void:
+	player.global_position = data.get("position", player.global_position)
+	max_hp = data.get("max_hp", max_hp)
+	max_mana = data.get("max_mana", max_mana)
+	hp = data.get("hp", hp)
+	mana = data.get("mana", mana)
+	mana_regen_mult = data.get("mana_regen_mult", mana_regen_mult)
+	dmg = data.get("dmg", dmg)
+	speed = data.get("speed", speed)
+	max_jumps = data.get("max_jumps", max_jumps)
+	equipped_spell = data.get("equipped_spell", equipped_spell)
+	
+	health_changed.emit(hp)
+	mana_changed.emit(mana)
+	
 	

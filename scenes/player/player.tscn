@@ -194,10 +194,9 @@ script = ExtResource("7_fjrip")
 [node name="Stats" type="Node" parent="." unique_id=1160536799]
 script = ExtResource("8_smehm")
 max_mana = 100000.0
-dmg = 10.0
-max_jumps = 100
+max_jumps = 0
 jump_amplifier = 1.5
-dash_cooldown = 0.0
+dash_cooldown = 1.0
 equipped_spell = "fireball"
 attack_cooldown = 1.0
 
