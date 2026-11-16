@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://jwb657hhsvmc" path="res://scripts/sun_ray.gd" id="3_y8l3a"]
 [ext_resource type="Shader" uid="uid://dn4u1wm42imaw" path="res://shaders/backtileset.gdshader" id="4_r5tr5"]
 [ext_resource type="Texture2D" uid="uid://yvmi1dpif8oj" path="res://assets/images/tilemap/newtileset.png" id="5_g531s"]
-[ext_resource type="PackedScene" uid="uid://dc4mgoixlcge" path="res://scenes/player/player.tscn" id="9_pq2ld"]
 [ext_resource type="PackedScene" uid="uid://c3tla7ld468s3" path="res://scenes/enemy/slime.tscn" id="10_0ou4s"]
 [ext_resource type="Script" uid="uid://gra5q4mdjkta" path="res://scripts/forest_zone.gd" id="11_nqxo7"]
 
@@ -1489,9 +1488,6 @@ position = Vector2(720, 96)
 
 [node name="Entities" type="Node2D" parent="." unique_id=533253299]
 
-[node name="Player" parent="Entities" unique_id=1870519369 instance=ExtResource("9_pq2ld")]
-position = Vector2(488, 168)
-
 [node name="Enemies" type="Node2D" parent="Entities" unique_id=377940928]
 
 [node name="Slime" parent="Entities/Enemies" unique_id=1978707806 instance=ExtResource("10_0ou4s")]
@@ -1520,22 +1516,22 @@ tile_set = SubResource("TileSet_g4v7s")
 
 [node name="BiomeZones" type="Node2D" parent="." unique_id=1728158573]
 
-[node name="ForestZone" type="Area2D" parent="BiomeZones" unique_id=1812781971 node_paths=PackedStringArray("overlay", "biome_title")]
+[node name="ForestZone" type="Area2D" parent="BiomeZones" unique_id=1812781971 node_paths=PackedStringArray("overlay")]
 script = ExtResource("11_nqxo7")
 biome_name = "Forest"
 biome_color = Color(0.3137255, 0.5529412, 0.4627451, 0.27450982)
 overlay = NodePath("../../BiomeColor/ColorRect")
-biome_title = NodePath("../../Entities/Player/HUD/BiomeTitle")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BiomeZones/ForestZone" unique_id=757815651]
 
-[node name="DungeonZone" type="Area2D" parent="BiomeZones" unique_id=754179158 node_paths=PackedStringArray("overlay", "biome_title")]
+[node name="DungeonZone" type="Area2D" parent="BiomeZones" unique_id=754179158 node_paths=PackedStringArray("overlay")]
 script = ExtResource("11_nqxo7")
 biome_name = "Dungeon"
 biome_color = Color(0.20784314, 0.16862746, 0.2509804, 0.50980395)
 overlay = NodePath("../../BiomeColor/ColorRect")
-biome_title = NodePath("../../Entities/Player/HUD/BiomeTitle")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BiomeZones/DungeonZone" unique_id=688834528]
 
 [node name="Labels" type="Node2D" parent="." unique_id=1527049055]
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=729912606]

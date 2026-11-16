@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpdktpfjwjv2"]
 
-[ext_resource type="Script" uid="uid://wddu4i2sb213" path="res://scripts/level_exit.gd" id="1_3xln6"]
+[ext_resource type="Script" uid="uid://wddu4i2sb213" path="res://scripts/level/level_exit.gd" id="1_3xln6"]
 [ext_resource type="Texture2D" uid="uid://cn0hk6q381234" path="res://assets/images/environment/light_stream.jpg" id="2_g8ilb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4v7s"]

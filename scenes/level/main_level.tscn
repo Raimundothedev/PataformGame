@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bktvhnvq8gcej" path="res://scenes/collectables/med_kit.tscn" id="6_xkf58"]
 [ext_resource type="PackedScene" uid="uid://c3tla7ld468s3" path="res://scenes/enemy/slime.tscn" id="7_qpj65"]
 [ext_resource type="Script" uid="uid://jwb657hhsvmc" path="res://scripts/sun_ray.gd" id="7_st77c"]
-[ext_resource type="PackedScene" uid="uid://dc4mgoixlcge" path="res://scenes/player/player.tscn" id="8_s3eur"]
 [ext_resource type="PackedScene" uid="uid://cywg54aig5lje" path="res://scenes/blocks/crate_block.tscn" id="8_st77c"]
 [ext_resource type="PackedScene" uid="uid://dgl2tikdngmf0" path="res://scenes/blocks/pot_block.tscn" id="9_xkf58"]
 [ext_resource type="Script" uid="uid://gra5q4mdjkta" path="res://scripts/forest_zone.gd" id="10_eykj1"]
 [ext_resource type="FontFile" uid="uid://bccn0gm0sivmf" path="res://assets/fonts/pixelify-sans-latin-400-normal.ttf" id="10_p3cnv"]
 [ext_resource type="PackedScene" uid="uid://bpdktpfjwjv2" path="res://scenes/level_exit.tscn" id="13_xkf58"]
+[ext_resource type="Script" uid="uid://dqjr7j35crbr" path="res://scripts/level/main_level/spawn_forest.gd" id="13_yykq1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_st77c"]
 blend_mode = 1
@@ -1395,7 +1395,7 @@ terrain_set_0/terrain_1/name = "Stone"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_l2rgk")
 
-[node name="level_root" type="Node2D" unique_id=578954522]
+[node name="main_level" type="Node2D" unique_id=578954522]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=176459242]
 
@@ -1656,9 +1656,6 @@ position = Vector2(-1120, -736)
 
 [node name="Entities" type="Node2D" parent="." unique_id=533253299]
 
-[node name="Player" parent="Entities" unique_id=1870519369 instance=ExtResource("8_s3eur")]
-position = Vector2(488, 168)
-
 [node name="Enemies" type="Node2D" parent="Entities" unique_id=377940928]
 
 [node name="Slime" parent="Entities/Enemies" unique_id=1978707806 instance=ExtResource("7_qpj65")]
@@ -1756,6 +1753,7 @@ script = ExtResource("7_st77c")
 position = Vector2(3856, 648)
 rotation = 1.5707964
 target_scene = "uid://buokuc8ldvb1n"
+target_spawn = &"entrance"
 
 [node name="TilemapFront" type="Node2D" parent="." unique_id=1155051569]
 
@@ -1767,23 +1765,21 @@ tile_set = SubResource("TileSet_g4v7s")
 
 [node name="BiomeZones" type="Node2D" parent="." unique_id=1728158573]
 
-[node name="ForestZone" type="Area2D" parent="BiomeZones" unique_id=1812781971 node_paths=PackedStringArray("overlay", "biome_title")]
+[node name="ForestZone" type="Area2D" parent="BiomeZones" unique_id=1812781971 node_paths=PackedStringArray("overlay")]
 script = ExtResource("10_eykj1")
 biome_name = "Forest"
 biome_color = Color(0.3137255, 0.5529412, 0.4627451, 0.27450982)
 overlay = NodePath("../../BiomeColor/ColorRect")
-biome_title = NodePath("../../Entities/Player/HUD/BiomeTitle")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BiomeZones/ForestZone" unique_id=757815651]
 visible = false
 polygon = PackedVector2Array(1872, 936, 1864, -32, 2296, -8, 2440, -104, 2552, -192, 2576, -304, 2704, -608, 2712, -784, 2640, -1048, 2688, -1936, 1064, -1936, -296, -1968, -1304, -1912, -1664, -872, -1296, 376, -888, 944, 408, 992)
 
-[node name="DungeonZone" type="Area2D" parent="BiomeZones" unique_id=754179158 node_paths=PackedStringArray("overlay", "biome_title")]
+[node name="DungeonZone" type="Area2D" parent="BiomeZones" unique_id=754179158 node_paths=PackedStringArray("overlay")]
 script = ExtResource("10_eykj1")
 biome_name = "Dungeon"
 biome_color = Color(0.20784314, 0.16862746, 0.2509804, 0.50980395)
 overlay = NodePath("../../BiomeColor/ColorRect")
-biome_title = NodePath("../../Entities/Player/HUD/BiomeTitle")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BiomeZones/DungeonZone" unique_id=688834528]
 visible = false
@@ -1812,3 +1808,17 @@ theme_override_fonts/font = ExtResource("10_p3cnv")
 theme_override_font_sizes/font_size = 24
 text = "Espaço - Dash
 Click - Ataca"
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=203506222]
+
+[node name="spawn_forest" type="Marker2D" parent="SpawnPoints" unique_id=884275505]
+position = Vector2(448, 128)
+gizmo_extents = 100.0
+script = ExtResource("13_yykq1")
+spawn_id = &"default"
+
+[node name="spawn_forest2" type="Marker2D" parent="SpawnPoints" unique_id=169933762]
+position = Vector2(3816, 648)
+gizmo_extents = 100.0
+script = ExtResource("13_yykq1")
+spawn_id = &"dungeon1"

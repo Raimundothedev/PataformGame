@@ -2,10 +2,6 @@ extends Node
 
 var target_spawn: String
 
-func _ready() -> void:
-	set_resolution(1280, 720)
-	print(DisplayServer.window_get_size())
-
 func toggle_fullscreen() -> void:
 	if DisplayServer.WINDOW_MODE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

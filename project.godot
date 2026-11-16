@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SpellDB="*uid://cgfw44owrdpto"
 GameManager="*uid://d13p4gyo4feeu"
+LevelManager="*uid://d4ci0ub4bwyp1"
 
 [display]
 
@@ -35,7 +36,7 @@ version_control/autoload_on_startup=true
 [global_group]
 
 enemies=""
-spawn_points=""
+player=""
 
 [input]
 

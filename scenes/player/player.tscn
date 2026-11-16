@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dc4mgoixlcge"]
 
-[ext_resource type="Script" uid="uid://d0crg0gk6wskh" path="res://scripts/player.gd" id="1_qlg0r"]
+[ext_resource type="Script" uid="uid://d0crg0gk6wskh" path="res://scripts/player/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://ceh00t34hlvgy" path="res://assets/images/player/characterAttack.png" id="2_smehm"]
 [ext_resource type="Texture2D" uid="uid://cwim47g7lr2fq" path="res://assets/images/player/characterHit.png" id="3_smehm"]
 [ext_resource type="Texture2D" uid="uid://ceujvwni2vu7k" path="res://assets/images/player/personagemeba-Sheet.png" id="4_smehm"]

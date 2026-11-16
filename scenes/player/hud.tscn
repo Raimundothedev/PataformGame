@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bd8jwsnq31jhx"]
 
-[ext_resource type="Script" uid="uid://dtw627pxkoadb" path="res://scripts/hud.gd" id="1_nhg7b"]
+[ext_resource type="Script" uid="uid://dtw627pxkoadb" path="res://scripts/player/HUD/hud.gd" id="1_nhg7b"]
 [ext_resource type="Texture2D" uid="uid://d0e5triaqqpbq" path="res://assets/images/HUD/healthicon.png" id="2_oxl5d"]
 [ext_resource type="FontFile" uid="uid://bccn0gm0sivmf" path="res://assets/fonts/pixelify-sans-latin-400-normal.ttf" id="3_a6kbs"]
 [ext_resource type="Texture2D" uid="uid://b47ea4qknucs8" path="res://assets/images/HUD/manaIcon.png" id="3_v82ke"]
 [ext_resource type="Texture2D" uid="uid://o3milb7qys0o" path="res://assets/images/HUD/resourcebarNul.png" id="4_a6kbs"]
 [ext_resource type="Texture2D" uid="uid://2w734samvyag" path="res://assets/images/HUD/resourcebarHealth.png" id="5_gbix8"]
 [ext_resource type="Texture2D" uid="uid://bgvpdt6hqwxev" path="res://assets/images/HUD/resourcebarMana.png" id="6_ulf4u"]
-[ext_resource type="Script" uid="uid://cvvqrgwj4seao" path="res://scripts/biome_title.gd" id="7_oxl5d"]
+[ext_resource type="Script" uid="uid://cvvqrgwj4seao" path="res://scripts/player/HUD/biome_title.gd" id="7_oxl5d"]
 
 [node name="HUD" type="CanvasLayer" unique_id=2088952530]
 script = ExtResource("1_nhg7b")
