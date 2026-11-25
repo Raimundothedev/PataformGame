@@ -7,18 +7,18 @@
 blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(176, 256)
+size = Vector2(176, 104)
 
 [node name="LevelExit" type="Area2D" unique_id=1777213416]
 script = ExtResource("1_3xln6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=315057117]
-modulate = Color(0.46816558, 3.1621905e-05, 0.38247696, 0.4509804)
+modulate = Color(1, 1, 1, 0.4509804)
 material = SubResource("CanvasItemMaterial_g4v7s")
 position = Vector2(-5.722046e-06, -128)
 scale = Vector2(0.75, 1)
 texture = ExtResource("2_g8ilb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1358554124]
-position = Vector2(0, -128)
+position = Vector2(0, -268)
 shape = SubResource("RectangleShape2D_yf5fn")

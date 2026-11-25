@@ -1,1 +1,1 @@
-extends BiomeZone
+extends Zone

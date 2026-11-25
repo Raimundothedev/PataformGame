@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq42dx14hb03"
-path="res://.godot/imported/gameboyTILESET.png-e8a220aa1af6bb003d057f8c65df771c.ctex"
+uid="uid://cmoj4q3l11aw3"
+path="res://.godot/imported/jumprune2.png-5b0397466248c867b15071919f3d3cf2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/tilemap/gameboyTILESET.png"
-dest_files=["res://.godot/imported/gameboyTILESET.png-e8a220aa1af6bb003d057f8c65df771c.ctex"]
+source_file="res://assets/images/collectables/jumprune2.png"
+dest_files=["res://.godot/imported/jumprune2.png-5b0397466248c867b15071919f3d3cf2.ctex"]
 
 [params]
 

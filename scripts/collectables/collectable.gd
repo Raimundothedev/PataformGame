@@ -3,7 +3,7 @@ class_name Collectible
 
 @export var c_name: String = "none"
 @export var can_collect: bool = true
-@export_enum("health", "mana", "speed", "add_spell") var effect_type: String
+@export_enum("health", "mana", "speed", "attribute") var effect_type: String
 @export var effect_amount: int
 
 @onready var player: CharacterBody2D
@@ -15,7 +15,7 @@ var effects = [
 	"health",
 	"mana",
 	"speed",
-	"add_spell"
+	"attribute"
 ]
 
 func _ready() -> void:
@@ -43,13 +43,13 @@ func collect(amount=0) -> bool:
 			if player.stats.mana == player.stats.max_mana:
 				return false
 			player.stats.restore_mana(amount)
-		"add_spell":
-			return add_spell()
+		"attribute":
+			return change_attribute()
 		_:
 			return false
 	return true
 			
-func add_spell() -> bool:
+func change_attribute() -> bool:
 	return	false
 	
 func destroy():

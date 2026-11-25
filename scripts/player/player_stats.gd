@@ -13,24 +13,20 @@ signal mana_changed(mana)
 @export var speed: float = 300.0
 @export var max_jumps: int = 1
 
-var hp: float = max_hp
-var mana: float = max_mana
-
-# Moviment variables
-@export var acceleration: float = 1200.0
-@export var friction: float = 1200.0
-@export var jump_amplifier: float = 1.2
-@export var jump_velocity: float = -400
-@export var dash_velocity: float = 500
-@export var dash_cooldown: float = 5
+var hp: float
+var mana: float 
 
 # Spells
-@export_enum("fireball", "pickaxe", "lighting") var equipped_spell: String
+@export_enum("none", "fireball", "pickaxe", "lighting") var equipped_spell: String
 @export var attack_cooldown: float = 0.5
 
 var invulnerable: bool = false
 
-func take_damage(d: float, enemy: Node2D):
+func _ready() -> void:
+	hp = max_hp
+	mana = max_mana
+
+func take_damage(d: float, target: Node2D):
 	if invulnerable:
 		return
 	hp = max(hp - d, 0)
@@ -39,20 +35,31 @@ func take_damage(d: float, enemy: Node2D):
 
 	
 	if hp <= 0:
-		print("Game Over baby")
+		die()
 	
 	player.attacked = true
-	var knockback_direction = (player.global_position - enemy.global_position).normalized()
+	var knockback_direction = (player.global_position - target.global_position).normalized()
 	player.velocity.x = knockback_direction.x * 500
 	player.velocity.y = -350
 	
-	player.add_collision_exception_with(enemy)
+	if target.is_in_group("enemy"):
+		player.add_collision_exception_with(target)
 	
 	await get_tree().create_timer(0.5).timeout
-	player.remove_collision_exception_with(enemy)
+	player.remove_collision_exception_with(target)
 	player.attacked = false
 	invulnerable = false
+
+func die() -> void:
+	get_tree().paused = true
+	await get_tree().create_timer(1).timeout
+	get_tree().paused = false
+	if SaveManager.has_save():
+		SaveManager.load_game()
+	else:
+		LevelManager.restart_level()
 	
+
 func restore_hp(amount: int):
 	hp = min(max_hp, hp + amount)
 	health_changed.emit(hp)

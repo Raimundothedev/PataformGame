@@ -10,6 +10,8 @@ func cast_spell() -> void:
 	if is_pressed:
 		if player.attacking or not stats.equipped_spell or player.attacked:
 			return 
+		if stats.equipped_spell == "none":
+			return
 		var spell_scene = SpellDB.get_spell(stats.equipped_spell)
 		var spell = spell_scene.instantiate()
 		

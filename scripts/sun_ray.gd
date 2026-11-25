@@ -1,8 +1,8 @@
 extends Sprite2D
 
-@export var min_opacity := 0.15
-@export var max_opacity := 0.3
-@export var duration := 4.0
+@export var min_opacity := 0.6
+@export var max_opacity := 0.8
+@export var duration := 2.0
 
 func _ready() -> void:
 	var tween = create_tween()

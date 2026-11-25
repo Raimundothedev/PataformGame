@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://c8qqstjjpdiqi"]
 
-[ext_resource type="Texture2D" uid="uid://cq42dx14hb03" path="res://assets/images/tilemap/gameboyTILESET.png" id="1_2g61r"]
-[ext_resource type="PackedScene" uid="uid://br2vr5s3gab65" path="res://scenes/blocks/crate_block.tscn" id="2_7r6rg"]
-[ext_resource type="PackedScene" uid="uid://dimhbw2t2r0mc" path="res://scenes/blocks/broken_stone.tscn" id="3_nfdax"]
+[ext_resource type="Texture2D" uid="uid://cq42dx14hb03" path="res://assets/images/tilemap/old/gameboyTILESET.png" id="1_2g61r"]
+[ext_resource type="PackedScene" uid="uid://cywg54aig5lje" path="res://scenes/blocks/crate_block.tscn" id="2_7r6rg"]
+[ext_resource type="PackedScene" path="res://scenes/blocks/broken_stone.tscn" id="3_nfdax"]
 [ext_resource type="PackedScene" uid="uid://bktvhnvq8gcej" path="res://scenes/collectables/med_kit.tscn" id="4_v181l"]
 [ext_resource type="PackedScene" uid="uid://bop4wvmfxws8a" path="res://scenes/collectables/mana_star.tscn" id="5_1ym1x"]
 [ext_resource type="PackedScene" uid="uid://c3tla7ld468s3" path="res://scenes/enemy/slime.tscn" id="6_fhhr7"]

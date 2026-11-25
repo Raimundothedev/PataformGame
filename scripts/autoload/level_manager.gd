@@ -5,13 +5,23 @@ var target_spawn: StringName
 var level_container
 var player: CharacterBody2D
 
+@onready var transition_scene = preload("res://scenes/transition.tscn")
+
 func _ready() -> void:
 	level_container = get_tree().current_scene.get_node("Levels")
 	player = get_tree().get_first_node_in_group("player")
 	
 func change_level(scene_path: String, spawn_id: StringName) -> void:
+	GameManager.freeze_game()
+	var transition = transition_scene.instantiate()
+	get_tree().current_scene.add_child(transition)
+	await transition.fade_out()
+	GameManager.unfreeze_game()
 	load_level(scene_path)
 	place_player(spawn_id)
+	
+	await transition.fade_in()
+	transition.destroy()
 
 func load_level(scene_path: String) -> void:
 	var scene: PackedScene = load(scene_path)
@@ -34,6 +44,9 @@ func unload_level() -> void:
 	level_container.remove_child(current_level)
 	current_level.queue_free()
 	current_level = null
+	
+func restart_level() -> void:
+	change_level(current_level.get_path(), &"start")
 	
 func find_spawn(spawn_id: StringName) -> SpawnPoint:
 	var spawn_points = get_tree().get_nodes_in_group("spawn_points")

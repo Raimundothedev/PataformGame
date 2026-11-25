@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var stats = $Stats
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+@export var spawnpoint: StringName = "start"
+
 var attacking = false
 var attacked = false
 var atk_anim = false
@@ -25,11 +27,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Movement
-	movement.handle_gravity(delta)
-	movement.handle_jump()
-	movement.handle_movement(delta)
-	movement.dash_skill()
-	movement.handle_down()
+	movement.player_movement(delta)
 	move_and_slide()
 	
 	# Combat

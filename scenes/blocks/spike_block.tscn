@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://kuhuejk0c5cq"]
+
+[ext_resource type="Script" uid="uid://bvywpud828nf0" path="res://scripts/blocks/spike_block.gd" id="1_b4th2"]
+[ext_resource type="Texture2D" uid="uid://vkyuogirre2y" path="res://assets/images/blocks/spike.png" id="2_b4th2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(48, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l8op"]
+size = Vector2(48, 16)
+
+[node name="SpikeBlock" type="StaticBody2D" unique_id=383373309]
+script = ExtResource("1_b4th2")
+damage = 25
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=90458258]
+texture_filter = 1
+position = Vector2(8, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("2_b4th2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=276283368]
+position = Vector2(8, 12)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=860052521]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=205170023]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_0l8op")
+debug_color = Color(0.987902, 0, 0.3130445, 0.41960785)
